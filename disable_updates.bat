@@ -30,7 +30,7 @@ exit /b
 :system_mode
 :: ----------------- code
 
-set services=wuauserv dosvc UsoSvc ClipSVC edgeupdate edgeupdatem ClickToRunSvc WaaSMedicSvc
+set services=wuauserv dosvc UsoSvc ClipSVC edgeupdate edgeupdatem MicrosoftEdgeElevationService ClickToRunSvc WaaSMedicSvc
 
 for %%s in (%services%) do (
     echo Disable and stop %%s...
