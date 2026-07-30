@@ -39,9 +39,11 @@ for %%s in (%services%) do (
 )
 
 echo Disable tasks...
-schtasks /Change /TN "\Microsoft\Windows\UpdateOrchestrator\" /DISABLE 2>nul
-schtasks /Change /TN "\Microsoft\Windows\WindowsUpdate\" /DISABLE 2>nul
-schtasks /Change /TN "\Microsoft\EdgeUpdate\" /DISABLE 2>nul
+schtasks /Change /TN "\Microsoft\Windows\UpdateOrchestrator\" /DISABLE
+schtasks /Change /TN "\Microsoft\Windows\WindowsUpdate\" /DISABLE
+schtasks /Change /TN "\Microsoft\EdgeUpdate\" /DISABLE
+schtasks /Change /TN "\Microsoft\Windows\UpdateOrchestrator\Schedule Scan" /DISABLE
+schtasks /Change /TN "\Microsoft\Windows\UpdateOrchestrator\USO_UxBroker" /DISABLE
 
 echo Registry modification...
 reg add "HKLM\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" /v NoAutoUpdate /t REG_DWORD /d 1 /f
