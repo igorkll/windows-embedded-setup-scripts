@@ -52,6 +52,10 @@ sc stop Sense
 sc config Sense start= disabled
 sc stop wscsvc
 sc config wscsvc start= disabled
+sc stop SecurityHealthService
+sc config SecurityHealthService start= disabled
+sc stop WdBoot
+sc config WdBoot start= disabled
 
 echo Disabling schtasks...
 schtasks /Change /TN "\Microsoft\Windows\Windows Defender\Windows Defender Cache Maintenance" /DISABLE
