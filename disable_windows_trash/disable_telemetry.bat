@@ -74,22 +74,42 @@ sc config WerSvc start= disabled
 :: 3. SCHEDULED TASKS
 :: ============================================================
 
-:: Application Experience
-schtasks /Change /TN "\Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser" /DISABLE >nul 2>&1
-schtasks /Change /TN "\Microsoft\Windows\Application Experience\ProgramDataUpdater" /DISABLE >nul 2>&1
-schtasks /Change /TN "\Microsoft\Windows\Application Experience\StartupAppTask" /DISABLE >nul 2>&1
+schtasks /Change /TN "\Microsoft\Windows\Application Experience\Microsoft Compatibility Appraiser" /DISABLE
+schtasks /Change /TN "\Microsoft\Windows\Application Experience\ProgramDataUpdater" /DISABLE
+schtasks /Change /TN "\Microsoft\Windows\Application Experience\AitAgent" /DISABLE
+schtasks /Change /TN "\Microsoft\Windows\Application Experience\StartupAppTask" /DISABLE
 
 :: Customer Experience Improvement Program
-schtasks /Change /TN "\Microsoft\Windows\Customer Experience Improvement Program\Consolidator" /DISABLE >nul 2>&1
-schtasks /Change /TN "\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask" /DISABLE >nul 2>&1
-schtasks /Change /TN "\Microsoft\Windows\Customer Experience Improvement Program\UsbCeip" /DISABLE >nul 2>&1
+schtasks /Change /TN "\Microsoft\Windows\Customer Experience Improvement Program\Consolidator" /DISABLE
+schtasks /Change /TN "\Microsoft\Windows\Customer Experience Improvement Program\KernelCeipTask" /DISABLE
+schtasks /Change /TN "\Microsoft\Windows\Customer Experience Improvement Program\UsbCeip" /DISABLE
 
-:: Other telemetry-related tasks
-schtasks /Change /TN "\Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector" /DISABLE >nul 2>&1
-schtasks /Change /TN "\Microsoft\Windows\Maintenance\WinSAT" /DISABLE >nul 2>&1
-schtasks /Change /TN "\Microsoft\Windows\Windows Error Reporting\QueueReporting" /DISABLE >nul 2>&1
-schtasks /Change /TN "\Microsoft\Windows\Autochk\Proxy" /DISABLE >nul 2>&1
-schtasks /Change /TN "\Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeSystem" /DISABLE >nul 2>&1
+:: Disk Diagnostic
+schtasks /Change /TN "\Microsoft\Windows\DiskDiagnostic\Microsoft-Windows-DiskDiagnosticDataCollector" /DISABLE
+
+:: Performance
+schtasks /Change /TN "\Microsoft\Windows\Maintenance\WinSAT" /DISABLE
+schtasks /Change /TN "\Microsoft\Windows\Power Efficiency Diagnostics\AnalyzeSystem" /DISABLE
+
+:: Error Reporting
+schtasks /Change /TN "\Microsoft\Windows\Windows Error Reporting\QueueReporting" /DISABLE
+
+:: Device & Diagnosis
+schtasks /Change /TN "\Microsoft\Windows\Device Information\Device" /DISABLE
+schtasks /Change /TN "\Microsoft\Windows\Diagnosis\Scheduled" /DISABLE
+schtasks /Change /TN "\Microsoft\Windows\RAC\RacTask" /DISABLE
+schtasks /Change /TN "\Microsoft\Windows\NetTrace\GatherNetworkInfo" /DISABLE
+
+:: Setup notifications
+schtasks /Change /TN "\Microsoft\Windows\Setup\EOSNotify" /DISABLE
+schtasks /Change /TN "\Microsoft\Windows\Setup\EOSNotify2" /DISABLE
+
+:: Maps (optional)
+schtasks /Change /TN "\Microsoft\Windows\Maps\MapsToastTask" /DISABLE
+schtasks /Change /TN "\Microsoft\Windows\Maps\MapsUpdateTask" /DISABLE
+
+:: Speech (optional)
+schtasks /Change /TN "\Microsoft\Windows\Speech\SpeechModelDownloadTask" /DISABLE
 
 :: ============================================================
 :: 4. FIREWALL RULES
