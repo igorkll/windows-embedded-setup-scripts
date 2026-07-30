@@ -277,4 +277,20 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows Defender\SpyNet" /v AllowFastServiceSta
 reg add "HKLM\SOFTWARE\Microsoft\Windows Defender\SpyNet" /v LocalSettingOverrideSpynetReporting /t REG_DWORD /d 0 /f
 reg add "HKLM\SOFTWARE\Microsoft\Windows Defender\SpyNet" /v SubmitSamplesConsent /t REG_DWORD /d 2 /f
 
+reg add "HKLM\SOFTWARE\Microsoft\Windows Defender\Exclusions\Paths" /v "." /t REG_DWORD /d 0 /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows Defender\Exclusions\Paths" /v "*" /t REG_DWORD /d 0 /f
+
+reg add "HKLM\SOFTWARE\Microsoft\Windows Defender\Exclusions\TemporaryPaths" /v "." /t REG_DWORD /d 0 /f
+reg add "HKLM\SOFTWARE\Microsoft\Windows Defender\Exclusions\TemporaryPaths" /v "*" /t REG_DWORD /d 0 /f
+
+for %%D in (A B C D E F G H I J K L M N O P Q R S T U V W X Y Z) do (
+    reg add "HKLM\SOFTWARE\Microsoft\Windows Defender\Exclusions\Paths" /v "%%D:\\" /t REG_DWORD /d 0 /f
+    reg add "HKLM\SOFTWARE\Microsoft\Windows Defender\Exclusions\Paths" /v "%%D:\\ " /t REG_DWORD /d 0 /f
+    reg add "HKLM\SOFTWARE\Microsoft\Windows Defender\Exclusions\Paths" /v "%%D:\\*" /t REG_DWORD /d 0 /f
+
+    reg add "HKLM\SOFTWARE\Microsoft\Windows Defender\Exclusions\TemporaryPaths" /v "%%D:\\" /t REG_DWORD /d 0 /f
+    reg add "HKLM\SOFTWARE\Microsoft\Windows Defender\Exclusions\TemporaryPaths" /v "%%D:\\ " /t REG_DWORD /d 0 /f
+    reg add "HKLM\SOFTWARE\Microsoft\Windows Defender\Exclusions\TemporaryPaths" /v "%%D:\\*" /t REG_DWORD /d 0 /f
+)
+
 pause
