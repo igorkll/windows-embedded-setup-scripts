@@ -1,5 +1,5 @@
 @echo off
-echo restore_boot_circle.bat
+echo restore_boot_messages.bat
 
 net session >nul 2>&1
 if %errorlevel% neq 0 (
@@ -8,6 +8,6 @@ if %errorlevel% neq 0 (
     exit /b
 )
 
-bcdedit /deletevalue {globalsettings} custom:16000069
+bcdedit /deletevalue {globalsettings} custom:16000068
 
 pause
