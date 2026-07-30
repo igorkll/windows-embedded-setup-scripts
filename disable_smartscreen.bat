@@ -1,5 +1,5 @@
 @echo off
-echo disable_updates.bat
+echo disable_smartscreen.bat
 
 :: ----------------- get system rights
 if "%1"=="--system" goto :system_mode
